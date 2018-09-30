@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Hello.css';
 
-export interface IProps {
+export interface Props {
     name: string;
     name2?: string;
     enthusiasmLevel?: number;
@@ -9,37 +9,31 @@ export interface IProps {
     onDecrement?: () => void;
 }
 
-interface IState {
+interface State {
     currentEnthusiasm: number;
 }
 
-class Hello extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+class Hello extends React.Component<Props, State> {
+    constructor(props: Props) {
         super(props);
     }
 
     public render() {
-        const {name, name2} = this.props;
-        const currentEnthusiasm = this.props.enthusiasmLevel !== null && this.props.enthusiasmLevel !== undefined ? this.props.enthusiasmLevel : 1;
-
-        if (currentEnthusiasm <= 0) {
+        const {name, name2, enthusiasmLevel = 1} = this.props;
+        if (enthusiasmLevel <= 0) {
             throw new Error('You could be a little more enthusiastic. :D');
         }
 
         return (
             <div className="hello">
-                <div className="greeting">
-                    Hello {name + getExclamationMarks(currentEnthusiasm)}
-                </div>
-                <div className="greeting2">
-                    Hello {name2 + getExclamationMarks(currentEnthusiasm)}
-                </div>
+                <div className="greeting">Hello {name + getExclamationMarks(enthusiasmLevel)}</div>
+                <div className="greeting2">Hello {name2 + getExclamationMarks(enthusiasmLevel)}</div>
+                <div>public url {process.env.PUBLIC_URL}</div>
                 <button onClick={this.props.onDecrement}>-</button>
                 <button onClick={this.props.onIncrement}>+</button>
             </div>
         );
     }
-
 }
 
 export default Hello;

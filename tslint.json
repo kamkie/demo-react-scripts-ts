@@ -1,7 +1,28 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier",
+    "tslint-plugin-prettier",
+    "tslint-consistent-codestyle"
+  ],
+  "rules": {
+    "prettier": [
+      true,
+      ".prettierrc",
+      {
+        "editorconfig": true
+      }
+    ],
+    "interface-name": [
+      true,
+      "never-prefix"
+    ]
+  },
   "linterOptions": {
     "exclude": [
+//      "server/**/*.js",
       "config/**/*.js",
       "node_modules/**/*.ts",
       "coverage/lcov-report/*.js"

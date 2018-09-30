@@ -2,17 +2,25 @@
   "name": "demo-react-scripts-ts",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-redux": "latest",
-    "react-scripts-ts": "2.17.0"
-  },
+  "homepage": "/app",
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "lint": "tslint --project .",
+    "lint:fix": "tslint --project . --fix"
+  },
+  "dependencies": {
+    "compression": "latest",
+    "dotenv-flow": "^0.1.0",
+    "express": "latest",
+    "express-http-proxy": "^1.4.0",
+    "morgan": "^1.9.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "latest",
+    "react-scripts-ts": "2.17.0"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.14",
@@ -24,6 +32,9 @@
     "@types/react-redux": "^6.0.9",
     "enzyme": "latest",
     "enzyme-adapter-react-16": "^1.5.0",
+    "prettier": "^1.14.3",
+    "tslint-consistent-codestyle": "^1.13.3",
+    "tslint-plugin-prettier": "^2.0.0",
     "typescript": "^3.0.3"
   }
 }

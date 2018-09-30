@@ -1,22 +1,26 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {Provider} from "react-redux";
+import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {EnthusiasmAction} from "./actions";
-import App from "./App";
+import {EnthusiasmAction} from './actions';
+import App from './App';
 import './index.css';
 import {enthusiasm} from './reducers';
 import registerServiceWorker from './registerServiceWorker';
-import {IStoreState} from './types';
+import {StoreState} from './types';
 
-const store = createStore<IStoreState, EnthusiasmAction, any, any>(enthusiasm, {
-    enthusiasmLevel: 1,
-    languageName: 'TypeScript',
-}, (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore<StoreState, EnthusiasmAction, any, any>(
+    enthusiasm,
+    {
+        enthusiasmLevel: 1,
+        languageName: 'TypeScript',
+    },
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <App />
     </Provider>,
     document.getElementById('root') as HTMLElement
 );
