@@ -48,7 +48,16 @@ app.use(compression());
 app.use(morgan('[:remote-addr] [:date[iso]] ":method :url HTTP/:http-version" status: :status time: :response-time ms contentLength: :res[content-length] ref: ":referrer" userAgent: ":user-agent"'));
 app.use(contextPath, router);
 
+const isLocalhost = Boolean(
+    host === 'localhost' ||
+    // [::1] is the IPv6 localhost address.
+    host === '[::1]' ||
+    host === '0.0.0.0' ||
+    // 127.0.0.1/8 is considered localhost for IPv4.
+    host.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
+);
+
 const server = app.listen(port, host, _ => {
-    console.log(`Server started on http://${host}:${port}${contextPath}`);
+    console.log(`Server started on http://${isLocalhost ? 'localhost' : host}:${port}${contextPath}`);
     console.log(server.address());
 });

@@ -13,20 +13,15 @@ import * as serviceWorker from './serviceWorker';
 import {StoreState} from './types';
 
 const history = createBrowserHistory();
-
+const initialState = {
+    enthusiasmLevel: 0,
+    languageName: 'TypeScript',
+};
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore<StoreState, EnthusiasmAction, any, any>(
     connectRouter(history)(enthusiasm),
-    {
-        enthusiasmLevel: 1,
-        languageName: 'TypeScript',
-    },
-    compose(
-        applyMiddleware(
-            routerMiddleware(history) // for dispatching history actions
-            // ... other middlewares ...
-        ),
-        (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-    )
+    initialState,
+    composeEnhancers(applyMiddleware(routerMiddleware(history)))
 );
 
 ReactDOM.render(
@@ -55,4 +50,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register({});

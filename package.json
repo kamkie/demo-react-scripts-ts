@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "/",
   "scripts": {
+    "analyze": "source-map-explorer build/static/js/main.*",
+    "clean": "rimraf build",
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
@@ -21,29 +23,31 @@
     "morgan": "^1.9.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-scripts-ts": "4.0.8",
     "react-redux": "latest",
     "react-router": "latest",
-    "react-router-dom": "latest"
+    "react-router-dom": "latest",
+    "react-scripts-ts": "4.0.8",
+    "source-map-explorer": "^1.6.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.14",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/history": "^4.7.0",
     "@types/jest": "^23.3.2",
     "@types/node": "^10.11.3",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.8",
-    "@types/webpack": "^4.4.13",
-    "typescript": "^3.1.1",
-    "@types/enzyme": "^3.1.14",
-    "@types/enzyme-adapter-react-16": "^1.0.3",
-    "@types/history": "^4.7.0",
     "@types/react-redux": "^6.0.9",
     "@types/react-router": "^4.0.31",
     "@types/react-router-dom": "^4.3.1",
+    "@types/webpack": "^4.4.13",
     "enzyme": "latest",
     "enzyme-adapter-react-16": "^1.5.0",
     "prettier": "^1.14.3",
+    "rimraf": "^2.6.2",
     "tslint-consistent-codestyle": "^1.13.3",
-    "tslint-plugin-prettier": "^2.0.0"
+    "tslint-plugin-prettier": "^2.0.0",
+    "typescript": "^3.1.1"
   },
   "browserslist": [
     ">0.2%",

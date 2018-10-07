@@ -6,7 +6,7 @@ import {StoreState} from '../types';
 
 export function mapStateToProps(state: StoreState, ownProps: any): Props {
     return {
-        enthusiasmLevel: state.enthusiasmLevel,
+        enthusiasmLevel: state.enthusiasmLevel || ownProps.enthusiasmLevel,
         name: state.languageName,
         name2: ownProps.name2,
     };
